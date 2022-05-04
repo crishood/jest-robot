@@ -1,17 +1,23 @@
-function robot(x, y) {
-    // lanza error si x o y están fuera de los límites (0 a 10)
-    let result = ''
-    let moveDown = -1
-    let moveLeft = -1
-    y += moveDown
-    x += moveLeft
-    if( x < 0 || x > 10 || y < 0 || y > 0){
-        result = 'Error'
-    } else {
-        result = 'Cool'
-    }
-    return (result)
+function createRobot(x, y) {
+    return {
+      movedown() {
+        y -= 1;
+        if (y >= 0 && y <= 10 && x >= 0 && x <= 10) {
+          return [x, y];
+        } else {
+          return 'Está fuera de los limites';
+        }
+      },
+      moveup() {
+        y += 1;
+        if (y >= 0 && y <= 10 && x >= 0 && x <= 10) {
+          return [x, y];
+        } else {
+          return "Está fuera de los limites";
+        }
+      },
+    };
   }
 
-  module.exports = robot
+  module.exports = createRobot;
 
